@@ -11,10 +11,10 @@ var PostModel = require('./models/post');
 router.get('/list',function(req, res, next){
   PostModel.find({},{},function(err,posts){
     if(err){
-      res.json({success:true});
+      res.json("返回数据失败");
       return
     }
-    res.json({ success: true, postsList: posts });
+    res.json({ success:"返回数据成功", postsList: posts });
   })
   
 });
@@ -26,7 +26,7 @@ router.post('/list/create',function(req, res, next){
   post.title = title;
   post.content = content;
   post.save(function(err,doc){
-    res.json({ success:true})
+    res.json("保存成功")
   })
 });
 

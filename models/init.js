@@ -8,5 +8,5 @@ db.on('error', function (err) {
 });
 
 db.once('open', function () {
-    console.log('mongodb connect successed!')
+    console.log('mongodb connect success!')
 });
