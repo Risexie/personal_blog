@@ -5,12 +5,12 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
   });
 
-/* GET users listing. */
+/* GET create listing. */
 router.get('/create', function(req, res, next) {
   res.render('create', { title : 'create' });
 });
 
-/* GET users listing. */
+/* GET view listing. */
 router.get('/view', function(req, res, next) {
     res.render('view', { title : 'view' });
   });

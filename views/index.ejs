@@ -9,7 +9,7 @@
   <body>
     <div id="app">
     <p>Welcome to <%= title %></p>
-    <h1 v-for="item in postsList">{{ item }}</h1>
+    <h1 v-for="item in postsList">{{ item.title }}</h1>
   </div>
   </body>
 </html>
@@ -24,6 +24,9 @@
         axios.get('/api/list')
         .then(function(response){
           app.postsList = response.data.postsList
+        })
+        .catch(function(error){
+          console.log(error)
         })
       }
     }
