@@ -13,7 +13,7 @@ router.get('/posts/list',function(req, res, next){
   })
   
 });
-router.post('/post/create',function(req, res, next){
+router.post('/posts/create',function(req, res, next){
   var title = req.body.title;
   var content = req.body.content;
 
@@ -25,4 +25,29 @@ router.post('/post/create',function(req, res, next){
   })
 });
 
+router.get('/posts/edit',function(req,res,next){
+var id = req.query.id;
+
+PostModel.findById(id,function(err,show){
+  if(err){
+    res.json({success:false})
+    return
+  }
+  res.json({success:true, show});
+ });
+});
+
+router.post('/posts/edit',function(req,res,next){
+var id = req.body.id;
+var title = req.body.title;
+var content = req.body.content;
+
+PostModel.findOneAndUpdate({_id:id},{title,content},function(err){
+  if(err){
+    res.json({success:false})
+  }else{
+    res.json({success:true})
+  }
+ });
+});
 module.exports = router;

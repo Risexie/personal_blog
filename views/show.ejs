@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= show.title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+      <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <link rel="stylesheet" href='/stylesheets/style.css' />
+  
+      <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+      <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+      <script src="https://cdn.bootcss.com/axios/0.16.2/axios.min.js"></script>
   </head>
   <body>
+    <!-- Split button -->
+<div class="btn-group pull-right">
+    <button type="button" class="btn btn-default">操作</button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="/posts/edit?id=<%= show._id %>">编辑</a></li>
+    </ul>
+  </div>
     <div id="app">
       <h1><%= show.title %></h1>
       <div><%- show.content %></div>
     </div>
+
   </body>
 </html>
