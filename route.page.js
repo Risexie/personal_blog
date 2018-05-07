@@ -4,9 +4,7 @@ var marked = require('marked');
 var PostModel = require('./models/post');
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', {
-    title: 'Home page'
-  });
+  res.render('index', {title: 'Home page'});
 });
 
 /* GET create page. */

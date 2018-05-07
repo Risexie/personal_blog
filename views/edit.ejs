@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
-  <script src="https://cdn.bootcss.com/axios/0.16.2/axios.min.js"></script>
-  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-</head>
-
-<body>
   <div id="app">
-    <h1>新建文章</h1>
+    <h1>编辑文章</h1>
     <div class="form-group">
       <input type="text" class="form-control" v-model="title" placeholder="输入文字标题">
     </div>
@@ -22,8 +11,6 @@
       <button class="btn btn-default" v-on:click="submit">提交修改</button>
     </div>
   </div>
-</body>
-</html>
 <script>
   var postId = '<%= id %>';
   var app = new Vue({
@@ -33,7 +20,7 @@
       content:'',
     },
     created (){
-        axios.get('/api/posts/edit?id=' + postId)
+        axios.get('/api/v1/posts/' + postId)
         .then(function(response){
             app.title = response.data.show.title
             app.content = response.data.show.content
@@ -44,7 +31,7 @@
     },
     methods: {
       submit(){
-        axios.post('/api/posts/edit',
+        axios.patch('/api/v1/posts/' + postId,
         {
           id:postId,
           title: app.title,

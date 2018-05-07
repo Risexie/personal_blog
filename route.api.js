@@ -3,7 +3,7 @@ var router = express.Router();
 var PostModel = require('./models/post');
 
 /* Get lists data*/ 
-router.get('/posts/list',function(req, res, next){
+router.get('/posts',function(req, res, next){
   PostModel.find({},{},function(err,posts){
     if(err){
       res.json("返回数据失败");
@@ -13,7 +13,7 @@ router.get('/posts/list',function(req, res, next){
   })
   
 });
-router.post('/posts/create',function(req, res, next){
+router.post('/posts',function(req, res, next){
   var title = req.body.title;
   var content = req.body.content;
 
@@ -25,8 +25,8 @@ router.post('/posts/create',function(req, res, next){
   })
 });
 
-router.get('/posts/edit',function(req,res,next){
-var id = req.query.id;
+router.get('/posts/:id',function(req,res,next){
+var id = req.params.id;
 
 PostModel.findById(id,function(err,show){
   if(err){
@@ -37,8 +37,8 @@ PostModel.findById(id,function(err,show){
  });
 });
 
-router.post('/posts/edit',function(req,res,next){
-var id = req.body.id;
+router.patch('/posts/:id',function(req,res,next){
+var id = req.params.id;
 var title = req.body.title;
 var content = req.body.content;
 
