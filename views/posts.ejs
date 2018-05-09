@@ -1,11 +1,28 @@
 <div id="app">
-  <p>Welcome to<%= title %>
-</p>
-  <div v-for="item in postsList">
-    <a v-bind:href="item.url">{{ item.title }}</a>
+  <h1>Welcome to <%= title %></h1>
+  <p><%= title %></p>
+  <ol class="breadcrumb">
+      <li><a href="http://localhost:3000">主页</a></li>
+      <li class = "active">文章列表</li>
+      <li><a href="http://localhost:3000/posts/create">写文章</a></li>
+  </ol>
+  <div class="col-sm-6 col-md-12">
+      <div class="thumbnail" v-for="item in postsList">
+          <img src="http://iph.href.lu/1200x390" alt="...">
+          <div class="caption"></div>
+          <h3>{{ item.title }}</h3>
+          <p>内容</p>
+          <p>
+              <a v-bind:href="item.url" class="btn btn-primary" role="button">read more</a>
+          </p>
+      </div>
+    <nav aria-label="...">
+      <ul class="pager">
+        <li><a href="#">Previous</a></li>
+        <li><a href="#">Next</a></li>
+      </ul>
+    </nav>
   </div>
-</div>
-
 <script>
   var app = new Vue({
     el: '#app',
@@ -20,7 +37,7 @@
             app.postsList.forEach((element) => element.url = '/posts/show?id=' + element._id);
           })
           .catch(function (error) {
-            console.log(error)
+            alert(err); 
           })
       }
     }

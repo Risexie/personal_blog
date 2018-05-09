@@ -1,118 +1,108 @@
-<div class="container">
-    <div class="row">
-        <div class="com-md-10">
-            <h1>Welcome to
-                <%= title %>
-            </h1>
-            <div>
-                <p>
-                    <%= title %>
-                </p>
+<h1>Welcome to<%= title %></h1>
+<div>
+    <p><%= title %> </p>
+</div>
+<ol class="breadcrumb">
+    <li class="active">主页</li>
+    <li>
+        <a href="http://localhost:3000/posts">文章列表</a>
+    </li>
+    <li>
+        <a href="http://localhost:3000/posts/create">写文章</a>
+    </li>
+</ol>
+<div class="col-sm-6 col-md-9">
+    <div class="thumbnail">
+        <img src="http://iph.href.lu/840x329" alt="...">
+        <div class="caption"></div>
+        <h3>标题</h3>
+        <p>内容</p>
+        <p>
+            <a href="#" class="btn btn-primary" role="button">read more</a>
+            <a href="#" class="btn btn-default" role="button">Button</a>
+        </p>
+    </div>
+    <div class="thumbnail">
+        <img src="http://iph.href.lu/840x329" alt="...">
+        <div class="caption"></div>
+        <h3>标题</h3>
+        <p>内容</p>
+        <p>
+            <a href="#" class="btn btn-primary" role="button">read more</a>
+            <a href="#" class="btn btn-default" role="button">Button</a>
+        </p>
+    </div>
+    <nav aria-label="...">
+        <ul class="pager">
+            <li>
+                <a href="#">Previous</a>
+            </li>
+            <li>
+                <a href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div id="sideNav">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">BLOG CATEGORIES</div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="badge">4</span>gategories1</li>
+                <li class="list-group-item">
+                    <span class="badge">4</span>gategories1</li>
+                <li class="list-group-item">
+                    <span class="badge">4</span>gategories1</li>
+                <li class="list-group-item">
+                    <span class="badge">4</span>gategories1</li>
+                <li class="list-group-item">
+                    <span class="badge">4</span>gategories1</li>
+                <li class="list-group-item">
+                    <span class="badge">4</span>gategories1</li>
+                <li class="list-group-item">
+                    <span class="badge">4</span>gategories1</li>
+                <li class="list-group-item">
+                    <span class="badge">4</span>gategories1</li>
+                <li class="list-group-item">
+                    <span class="badge">4</span>gategories1</li>
+                <li class="list-group-item">
+                    <span class="badge">4</span>gategories1</li>
+                <li class="list-group-item">
+                    <span class="badge">4</span>gategories1</li>
+            </ul>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="http://iph.href.lu/66x66" alt="...">
+                </a>
             </div>
-            <ol class="breadcrumb">
-                <li class="active">主页</li>
-                <li>
-                    <a href="http://localhost:3000/posts">文章列表</a>
-                </li>
-                <li>
-                    <a href="http://localhost:3000/posts/create">写文章</a>
-                </li>
-            </ol>
-            <div class="col-sm-6 col-md-9">
-                <div class="thumbnail">
-                    <img src="http://iph.href.lu/840x329" alt="...">
-                    <div class="caption"></div>
-                    <h3>标题</h3>
-                    <p>内容</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">read more</a>
-                        <a href="#" class="btn btn-default" role="button">Button</a>
-                    </p>
-                </div>
-                <div class="thumbnail">
-                    <img src="http://iph.href.lu/840x329" alt="...">
-                    <div class="caption"></div>
-                    <h3>标题</h3>
-                    <p>内容</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">read more</a>
-                        <a href="#" class="btn btn-default" role="button">Button</a>
-                    </p>
-                </div>
-                <nav aria-label="...">
-                    <ul class="pager">
-                        <li>
-                            <a href="#">Previous</a>
-                        </li>
-                        <li>
-                            <a href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
+            <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+                content
             </div>
-            <div id="sideNav">
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">BLOG CATEGORIES</div>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="badge">4</span>gategories1</li>
-                            <li class="list-group-item">
-                                <span class="badge">4</span>gategories1</li>
-                            <li class="list-group-item">
-                                <span class="badge">4</span>gategories1</li>
-                            <li class="list-group-item">
-                                <span class="badge">4</span>gategories1</li>
-                            <li class="list-group-item">
-                                <span class="badge">4</span>gategories1</li>
-                            <li class="list-group-item">
-                                <span class="badge">4</span>gategories1</li>
-                            <li class="list-group-item">
-                                <span class="badge">4</span>gategories1</li>
-                            <li class="list-group-item">
-                                <span class="badge">4</span>gategories1</li>
-                            <li class="list-group-item">
-                                <span class="badge">4</span>gategories1</li>
-                            <li class="list-group-item">
-                                <span class="badge">4</span>gategories1</li>
-                            <li class="list-group-item">
-                                <span class="badge">4</span>gategories1</li>
-                        </ul>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="http://iph.href.lu/66x66" alt="...">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Media heading</h4>
-                            content
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="http://iph.href.lu/66x66" alt="...">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Media heading</h4>
-                            content
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="http://iph.href.lu/66x66" alt="...">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Media heading</h4>
-                            content
-                        </div>
-                    </div>
-                </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="http://iph.href.lu/66x66" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+                content
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="http://iph.href.lu/66x66" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+                content
             </div>
         </div>
     </div>

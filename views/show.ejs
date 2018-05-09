@@ -1,17 +1,59 @@
-<!-- Split button -->
-<div class="btn-group pull-right">
-  <button type="button" class="btn btn-default">操作</button>
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="caret"></span>
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <ul class="dropdown-menu">
-    <li>
-      <a href="/posts/edit?id=<%= show._id %>">编辑</a>
-    </li>
-  </ul>
-</div>
+<h1>Welcome to content</h1>
+<p>content</p>
 <div id="app">
-  <h1><%= show.title %></h1>
-  <div><%- show.content %></div>
+  <ol class="breadcrumb">
+    <li>
+      <a href="http://localhost:3000">主页</a>
+    </li>
+    <li>
+      <a href="http://localhost:3000/posts">文章列表</a>
+    </li>
+    <li>
+      <a href="http://localhost:3000/posts/create">写文章</a>
+    </li>
+    <li class="active">文章内容</li>
+  </ol>
+  <div class="btn-group pull-right">
+    <button type="button" class="btn btn-default">操作</button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="/posts/edit?id=<%= show._id %>">编辑</a>
+      </li>
+    </ul>
+  </div>
+  <button type="button" class="btn btn-primary" v-on:click="deleteOne">删除文章</button>
 </div>
+<h1>
+  <%= show.title %>
+</h1>
+<div>
+  <%- show.content %>
+</div>
+
+<script>
+  var postId = "<%= show.id %>";
+  var app = new Vue({
+    el: "#app",
+    dada: {
+
+    },
+    methods: {
+      deleteOne () {
+        axios.delete('/api/v1/posts/' + postId)
+          .then(function (response) {
+            return response.data
+          })
+          .then(function (data) {
+            window.location = '/posts'
+          })
+          .catch(function (err) {
+            next(err);
+          })
+      }
+    },
+  });
+</script>

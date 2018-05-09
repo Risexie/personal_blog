@@ -27,13 +27,14 @@ router.get('/posts/show', function (req, res, next) {
 
   PostModel.findById(id, function (err, show) {
     if (err) {
-      console.log(err)
-    }
+      next(err);
+    }else{
     show.content = marked(show.content)
     res.render('show', {
       show
     })
-  });
+  }
+});
 });
 
 /* GET show content*/

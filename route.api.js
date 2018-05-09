@@ -6,10 +6,10 @@ var PostModel = require('./models/post');
 router.get('/posts',function(req, res, next){
   PostModel.find({},{},function(err,posts){
     if(err){
-      res.json("返回数据失败");
-      return
+      next(err);
+    }else{
+    res.json({ success:true, postsList: posts });
     }
-    res.json({ success:"返回数据成功", postsList: posts });
   })
   
 });
@@ -21,7 +21,11 @@ router.post('/posts',function(req, res, next){
   post.title = title;
   post.content = content;
   post.save(function(err,doc){
-    res.json("保存成功")
+    if(err){
+      next(err);
+    }else{
+      res.json({post: doc});
+    }
   })
 });
 
@@ -30,10 +34,10 @@ var id = req.params.id;
 
 PostModel.findById(id,function(err,show){
   if(err){
-    res.json({success:false})
-    return
+    next(err);
+  }else{
+  res.json({success:true,show});
   }
-  res.json({success:true, show});
  });
 });
 
@@ -44,9 +48,21 @@ var content = req.body.content;
 
 PostModel.findOneAndUpdate({_id:id},{title,content},function(err){
   if(err){
-    res.json({success:false})
+    next(err);
   }else{
-    res.json({success:true})
+    res.json({});
+  }
+ });
+});
+
+router.delete('/posts/:id',function(req,res,next){
+var id = req.params.id;
+
+PostModel.findByIdAndRemove(id,function(err,){
+  if(err){
+    next(err);
+  }else{
+    res.json({});
   }
  });
 });
