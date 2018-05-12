@@ -42,4 +42,15 @@ router.get('/posts/edit', function (req, res, next) {
   var id = req.query.id;
   res.render('edit',{id});
 })
+
+/* GET signUp page */
+router.get('/signup',function(req,res,next){
+  res.render("signup",{title:"signup"});
+});
+
+/* GET signIn page */
+router.get('/signin',function(req,res,next){
+  res.render('signin',{title:"signin"});
+});
+
 module.exports = router;

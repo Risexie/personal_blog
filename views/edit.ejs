@@ -1,9 +1,15 @@
 <ol class="breadcrumb">
-        <li><a href="http://localhost:3000">主页</a></li>
-        <li><a herf="http://localhost:3000/posts">文章列表</a></li>
-        <li><a href="http://localhost:3000/posts/create">写文章</a></li>
-        <li class="active">编辑文章</li>
-    </ol>
+    <li>
+        <a href="http://localhost:3000">主页</a>
+    </li>
+    <li>
+        <a href="http://localhost:3000/posts">文章列表</a>
+    </li>
+    <li>
+        <a href="http://localhost:3000/posts/create">写文章</a>
+    </li>
+    <li class="active">编辑文章</li>
+</ol>
 <div id="app">
     <h1>编辑文章</h1>
     <div class="form-group">
@@ -48,7 +54,7 @@
                         window.location = '/posts/show?id=' + postId;
                     })
                     .catch(function (err) {
-                        alert(err)
+                        alert(err.response.data.error);
                     })
             }
         }

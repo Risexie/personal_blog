@@ -6,9 +6,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressLayouts = require('express-ejs-layouts');
+var config = require('./config');
+var auth = require('./middlewares/auth');
+
 
 var page = require('./route.page');
 var api = require('./route.api');
+
 
 var app = express();
 
@@ -22,11 +26,13 @@ app.use(expressLayouts);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(config.cookieName));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(auth.authUser);
 
 app.use('/', page);
 app.use('/api/v1', api);
+
 
 
 
@@ -45,7 +51,20 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.format({
+    json() {
+      res.send({error: err.toString()});
+    },
+
+    html() {
+      res.render('error');
+    },
+
+    default() {
+      const message = `${errorDetails}`;
+      res.send(`500 Internal server error:\n${err.toString()}`);
+    },
+  });
 });
 
 module.exports = app;
